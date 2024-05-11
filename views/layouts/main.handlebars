@@ -1,0 +1,65 @@
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Tech Blog!</title>
+    <link
+      rel='stylesheet'
+      href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
+    />
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'
+    />
+    <link
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'
+    />
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+
+  <body>
+    <header>
+
+      <nav class='navbar navbar-expand-lg bg-body-tertiary'>
+        <div class='container-fluid'>
+          <!-- Left side of the navbar -->
+          <a class='navbar-link' href='/'><h1 class='pt-3'>Tech Blog!</h1></a>
+
+          <!-- Right side of the navbar -->
+          <div>
+            <ul class='navbar-nav'>
+              {{#if logged_in}}
+                <li class='nav-item'>
+                  <a class='nav-link' href='/logout'>Logout</a>
+                </li>
+              {{else}}
+                <li class='nav-item'>
+                  <a class='nav-link' href='/login'>Login</a>
+                </li>
+                <li class='nav-item'>
+                  <a class='nav-link' href='/signup'>Signup</a>
+                </li>
+              {{/if}}
+            </ul>
+
+            {{! <!-- Dropdown button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> }}
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class='container'>
+      {{{body}}}
+    </main>
+    <footer class='footer container-fluid text-center p-3'>
+      <h7>Dedicated by
+        <a href='https://github.com/FonKnp'>Fon</a>
+      </h7>
+    </footer>
+  </body>
+
+</html>
