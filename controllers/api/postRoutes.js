@@ -1,8 +1,47 @@
-const router = require("express").Router();
-const { Post } = require("../../models");
-const withAuth = require("../../utils/auth");
+const router = require('express').Router();
+const { Post } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.post("/", withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
+  try {
+    const postData = await Post.findAll();
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/user/:id', async (req, res) => {
+  try {
+    const postData = await BlogPost.findAll({
+      where: {
+        user_id: req.params.id,
+      },
+    });
+    if (!postData) {
+      res.status(404).json({ message: 'No post found with this id!' });
+      return;
+    }
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       ...req.body,
@@ -15,7 +54,24 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-router.delete("/:id", withAuth, async (req, res) => {
+router.put('/:id', auth, async (req, res) => {
+  try {
+    const postData = await Post.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    if (!postData) {
+      res.status(404).json({ message: 'No blog post found with this id!' });
+      return;
+    }
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.destroy({
       where: {
@@ -25,7 +81,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: "No post found with this id!" });
+      res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
 
