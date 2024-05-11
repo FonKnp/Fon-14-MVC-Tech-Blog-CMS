@@ -1,0 +1,63 @@
+:root {
+  --background: #000814;
+  --navbar: linear-gradient(#001d3d, #000814);
+  --footer: linear-gradient(#000814, #001d3d);
+  --text01: #ffffff;
+  --lightpink: #f5dddd;
+  --gray: #4a4e69;
+  --khaki: #f0e68c;
+  --skyblue: #87ceeb;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background);
+  color: white;
+}
+
+header {
+  text-align: center;
+  background: var(--navbar);
+}
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: var(--text01);
+}
+
+h7 a {
+  text-decoration: none;
+  color: var(--text01);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background: var(--footer);
+}
+
+/* class */
+
+.navbar {
+  padding: 1% 5% 1% 5%;
+}
+
+.navbar .container-fluid {
+  align-items: baseline;
+}
+
+.navbar-nav .nav-link,
+.navbar-link {
+  color: var(--lightpink);
+  text-decoration: none;
+}
+
+/* hover setting */
+
+.navbar-nav .nav-link:hover,
+.navbar-link:hover,
+h7 a:hover {
+  color: var(--skyblue);
+  text-decoration: none;
+}
