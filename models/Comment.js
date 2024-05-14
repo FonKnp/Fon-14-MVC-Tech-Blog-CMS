@@ -38,6 +38,7 @@ Comment.init(
       references: {
         model: 'post',
         key: 'id',
+        onDelete: 'CASCADE',
       },
     },
   },
@@ -46,8 +47,8 @@ Comment.init(
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comments',
+    modelName: 'comment',
   }
 );
 
-module.exports = Comments;
+module.exports = Comment;

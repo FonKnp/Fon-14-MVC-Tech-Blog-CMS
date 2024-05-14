@@ -46,7 +46,7 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.update(req.body, {
       where: {

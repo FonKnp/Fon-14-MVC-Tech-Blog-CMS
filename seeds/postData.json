@@ -1,14 +1,14 @@
 [
   {
-    "name": "A day in Paris",
+    "title": "A day in Paris",
     "description": "What a wonderful weather, and such a beautiful Eiffel Tower!"
   },
   {
-    "name": "A day in Florence",
+    "title": "A day in Florence",
     "description": "Lovely city in Italy, great atmosphere, and easily walking around."
   },
   {
-    "name": "A day in Milan",
+    "title": "A day in Milan",
     "description": "Just like you watching fashion week every corner, spectacular city, and interesting architecture!"
   }
 ]
